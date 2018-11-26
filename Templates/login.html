@@ -1,0 +1,181 @@
+    <!-- Start nav-bar -->
+<div style="background-image: url(/static/img/sin_all.jpg);background-size: 100% 100%;">
+        <div  style="">
+            <div>    
+                <button style="visibility: hidden;" id="ar" class="btn btn-light logbtn"> العربيه </button>
+                <button type="button" class="btn btn-outline-light logbtn padd-mid" data-toggle="modal" data-target="#sing"> sing in </button>
+                
+                <button class="btn btn-outline-light logbtn padd-mid" data-toggle="modal" data-target="#singin"> sing in new </button>
+            </div>
+            <div class="container">
+                 <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1 id="Title"><span>Project </span><br> Management<br> And Research </h1>
+                <a href="#Login" class="login">
+                    <button id="dawn" class="btn btn-outline-light btn-lg"><i class="fa fa-chevron-down"></i> </button>
+                </a>
+            </div>
+                </div>
+            </div>
+        </div>
+<!--    dawn page 1 -->
+        <div  style="">
+            <div class="container conall" id="Login">
+                 <div class="row">
+                    <div class="col-md-6 bg-black">
+                        <div class="first-block">
+                            <i class="fa fa-search  img-ti"></i>
+                            <span>Plagrism</span>
+                            <p>
+                                  stealing and publication of another author's language, thoughts, ideas, or expressions and the representation of them as one's own original work. 
+                            </p>
+                        </div>
+                        <div class="first-block">
+                            <i class="fa fa-copy img-ti"></i>
+                            <span>Plagrism</span>
+                            <p>
+                            stealing and publication of another author's language, thoughts, ideas, or expressions and the representation of them as one's own original work.
+                            </p>
+                        </div>
+                     </div>  
+                     
+                     
+                    <div class="col-md-6 bg-black">
+                     <div class="first-block">
+                            <i class="fa fa-search  img-ti"></i>
+                            <span>Plagrism</span>
+                            <p>
+                            stealing and publication of another author's language, thoughts, ideas, or expressions and the representation of them as one's own original work.
+                            </p>
+                        </div>
+                        <div class="first-block">
+                            <i class="fa fa-search  img-ti"></i>
+                            <span>Plagrism</span>
+                            <p>
+                             stealing and publication of another author's language, thoughts, ideas, or expressions and the representation of them as one's own original work.
+                            </p>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+<!--    dawn page 2 -->
+        <div  style="">
+            <div class="container">
+                 <div class="row">
+                     <div class="col-md-6 ">
+                        <div class="contact">
+                             <form id="val_comment">
+                              <div class="form-group">
+                                <label class="conlable">E-mail</label>
+                                <input type="email" name="E_mail" class="form-control circle"  placeholder="mxxxxxx@example.com">
+                                </div>
+                             <div class="form-group">
+                                 <label class="conlable">comment</label>
+                                 <textarea class="form-control circle" name="comm" placeholder="write something here ... " rows="4" style="resize: none;"></textarea>
+                             </div>
+                                 <button type="submit" class= "send btn btn-outline-light btn-lg ">Send</button>
+                             </form>
+                            </div>
+                     </div>
+                     <div class="col-md-6 ">
+                        <div class="contact-">
+                            <label class="conlable txtphone">0995128484 - 0967471097 <i class="fa fa-phone"></i></label>
+                            <label class="conlable txtemail">Alzaem_Alazhary@gmail.com <i class="fa fa-envelope"></i></label>
+                            <label class="conlable txtum">Alzaem Alazhary Unevercety</label>
+                            </div>
+                            <div id="sociall">
+                                <button class="btn btn-outline-light social"><i class="fa fa-telegram"></i> </button>
+                                <button class="btn btn-outline-light social"><i class="fa fa-instagram"></i> </button>
+                                <button class="btn btn-outline-light social"><i class="fa fa-linkedin"></i> </button>
+                                <button class="btn btn-outline-light social"><i class="fa fa-twitter"></i> </button>
+                                <button class="btn btn-outline-light social"><i class="fa fa-facebook-f"></i> </button>
+                                <button class="btn btn-outline-light social"><i class="fa fa-youtube"></i> </button>
+                            </div>
+                         </div>
+                </div>
+            </div>
+            
+    </div>
+    <div id="footer" style="color: white;">All Copy Right Receve &copy;
+            </div>
+</div>
+<!-- Modal sign up -->
+<div id="singin" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body borde">
+          <i class="fa fa-user-plus user"></i>
+          <p>Member Sign Up</p>
+          <form id="val_sign_up" action="/register" method="post">
+              <div id="leftForm">
+              <div class="form-group">
+                    <label class="formlable">Full Name</label>
+                    <input type="text" class="form-control filed"  placeholder="Your Name" name="name"> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">Studant ID</label>
+                    <input type="text" class="form-control filed"  placeholder="0000000" name="id"> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">User Name</label>
+                    <input type="text" class="form-control filed"  placeholder="User Name" name="username"> 
+              </div>
+              
+              <div class="form-group">
+                    <label class="formlable">College</label>
+                    <select class="form-control filed" name="college">
+                      {% for college in colleges %}
+                          <option value="{{college['id']}}">{{college["name"]}}</option>
+                      {% endfor %}
+                    </select> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">E-mail</label>
+                    <input type="email" class="form-control filed"  placeholder="mxxxxxxx@example.com" name="email"> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">Password</label>
+                    <input type="password" class="form-control filed" name="password"> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">Confirm-Password</label>
+                    <input type="password" class="form-control filed" name="confirmpassword"> 
+              </div>
+              </div>
+              <button type="submit" id="btnsum" class=" btn btn-success btn-lg ">Sing Up</button>
+          </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!-- Modal sign in -->
+<div id="sing" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body borde">
+          <p id="sign">Sign In </p>
+          <form id="val_sign_in" action="/" method="post">
+              <div id="leftForm">
+              <div class="form-group">
+                    <label class="formlable">User Name OR Email</label>
+                    <input type="text" class="form-control filed"  placeholder="User Name" name="username"> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">Password</label>
+                    <input type="password" class="form-control filed" name="password"> 
+              </div>
+              </div>
+              <button type="submit" id="" class=" btn btn-success btn-lg sin">Sing In</button>
+          </form>
+      </div>
+    </div>
+
+  </div>
+</div>

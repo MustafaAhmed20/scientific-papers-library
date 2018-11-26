@@ -1,0 +1,153 @@
+{% block content %}
+
+<!--        body of the page    -->
+        <div class="body">
+        <nav class="navbar navbar-expand-sm search">
+          <form class="form-inline mynav" >
+              <div class="input-group">
+                <div class="input-group-append">
+        
+            <input class="form-control" type="text" id="myInput_name" onkeyup="myFunction_name()" placeholder="Search here">
+        
+                 <span class="input-group-text sico"><i class="fa fa-search"></i></span>
+                 </div>
+              </div>
+              
+              <button type="button" class="btn btn-success add-coll" data-toggle="modal" data-target="#add-college">
+                                    Add College <i class="fa fa-plus"></i>
+              </button>
+          </form>
+        </nav>
+        <div class="table-responsive tabl">
+                    <table id="myTable" class="table table-striped">
+                      <tr class="header bg-dark text-light thead">
+                        <th >College Name</th>
+                        <th >College plagiarism Rate</th>
+                      </tr>
+                      {% for college in data%}
+                        <tr>
+                          <td>{{college['name']}}</td>
+                          <td>{{college['plagiarism']}}</td>
+                          
+                        
+                        </tr>
+                      {% endfor %}
+                      
+                    </table>
+            </div>   
+        </div>
+            <!-- table End -->
+
+<script>
+
+    var n=0;
+    var b=0;
+                function myFunction_name() {
+                  // Declare variables 
+      n = 1;
+      if(b==0){
+                  var input, filter, table, tr, td, i;
+                  input = document.getElementById("myInput_name");
+                  filter = input.value.toUpperCase();
+                  table = document.getElementById("myTable");
+                  tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                      }
+                    } 
+                  }
+      }
+      else
+      {
+        all();  
+      }
+    }
+    function myFunction_date() {
+                  // Declare variables 
+      b= 1;
+      if(n==0){
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput_date");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+              td = tr[i].getElementsByTagName("td")[2];
+              if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  tr[i].style.display = "";
+                } else {
+                  tr[i].style.display = "none";
+                }
+              } 
+            }
+          }
+        else
+        {
+            all();
+        }
+    }
+    function all()
+    {
+      var input, filter,input1, filter1, table, tr, td,td1, i;
+                  input = document.getElementById("myInput_name");
+                  filter = input.value.toUpperCase();
+      input1 = document.getElementById("myInput_date");
+                  filter1 = input1.value.toUpperCase();
+                  table = document.getElementById("myTable");
+                  tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    td1 = tr[i].getElementsByTagName("td")[2];
+                    if (td && td1) {
+                      if (td.innerHTML.toUpperCase().indexOf(filter) > -1 && td1.innerHTML.toUpperCase().indexOf(filter1) > -1 ) {
+                        tr[i].style.display = "";
+      //alert("secsess "+filter+"\t,,"+filter1);
+                      } else {
+      //alert("failed"+filter+"\t,,"+filter1);
+                        tr[i].style.display = "none";
+                      }
+                    } 
+                  }
+        
+    }
+
+</script>
+    
+<!-- Modal add college -->
+<div id="add-college" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body borde">
+          <p id="cole">Add College</p>
+          <form id="add_college" method="post" action="{{url_for('addCollege')}}">
+              <div id="leftForm">
+              <div class="form-group">
+                    <label class="formlable">Collge name</label>
+                    <input type="text" class="form-control filed"  placeholder="Collge Name" name="name"> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">Max Plagiarism Rate</label><br>
+                    <input type="number" step=0.1 class="form-control  filed" value="20.0" name="rate" min=0 max=100.0> 
+              </div>
+              </div>
+              <button type="submit" id="" class=" btn btn-success btn-lg sin">Save</button>
+          </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

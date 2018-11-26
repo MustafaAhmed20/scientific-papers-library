@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+        <title> Project Managment </title>
+        <link rel="stylesheet" href="{{path}}\static\css\bootstrap.min.css">
+        <link rel="stylesheet" href="{{path}}\static\font\css\font-awesome.min.css">
+        <link rel="icon" type="image/icon" href="{{path}}\static\img\pm2.png">
+        <link rel="stylesheet" href="{{path}}/static\css\main.css">
+        <script src="{{path}}\static\js\jquery-3.3.1.min.js"></script>
+        <script src="{{path}}\static\js\bootstrap.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="{{path}}\static\css\outPut.css">
+        <script src="{{path}}\static\chart\Chart.bundle.js"></script>
+        <script src="{{path}}\static\chart\samples\utils.js"></script>
+        
+    </head>
+    <body>
+        <div style="background-image: url({{path}}\static\img\home_1.jpg);background-size: 100% 100%;height: 662px;">
+<!-- Start nav-bar -->
+          <div>
+              <div>
+                
+                <label id="rad_na">mustafa</label>
+                <label id="rada">
+                  
+                    Adminstrator
+                  
+                  
+                </label>
+                
+                  <label id="ti">Reports</label>
+                
+                
+                
+
+                <a href="{{url_for('project')}}" style="text-decoration: none;color: black">
+                  <div class="icon">
+                    <i class="fa fa-home"></i>
+                    <label id="ho">Home</label>
+                  </div>
+                </a>
+
+                <a href="{{url_for('logout')}}" style="text-decoration: none;color: black">
+                  <div class="ico">
+                    <i class="fa fa-sign-out"></i>
+                    <label id="ho">Sign Out</label>
+                  </div>
+                </a>
+              </div>
+          </div>
+          
+<!-- End of nav-bar -->
+
+    
+<!--        body of the page    -->
+<!--        Charts-->
+    <div> 
+        <section class="price_table">
+                    <div class="row">
+                        
+<!--                            <div class="text_box one">-->
+<textarea class="text_box"> {{data['text']|safe}} </textarea>
+
+<!--                            </div>-->
+                        
+<!--                details    -->
+                <div style="margin-top: 150px;margin-left: 100px;margin-right: -100px;">
+                    <div class="all-box">
+                    <div class="box"></div>
+                    <label>mhw</label>
+                    </div>
+<!--
+                    <div class="all-box">
+                    <div class="box"></div>
+                    <label>my book</label>
+                    </div>
+                    <div class="all-box">
+                    <div class="box"></div>
+                    <label>my book</label>
+                    </div>
+                    <div class="all-box">
+                    <div class="box"></div>
+                    <label>my book</label>
+                    </div>
+-->
+                    
+                        </div>
+                        
+<!--                        pip chart-->
+        <div id="canvas-holder" class="pipout">
+            
+<!--            <canvas style="height: 100%;width: 90%;" id="line"></canvas>  -->
+           
+            <canvas id="chart-area"></canvas>
+              
+           </div>
+                        
+    <script type="text/javascript">
+        
+            var config = {
+            type: 'pie',
+            data: {
+                datasets: [{
+                    data:[],
+                    backgroundColor: [
+                        
+                    ],
+                    label: []
+                }],
+                labels: [
+                    
+                ]
+            },
+            options: {
+                responsive: true
+            }
+        };
+        var count=0;
+        var colorNames = Object.keys(window.chartColors);
+        //document.getElementById('addData').addEventListener('click', function() {
+        
+        
+        //************************************************************************************
+        //Edit with Python for pip
+        //var arrname=["mhw","omer","mustafa","mom","mustafa","mom"]
+        var arrname=[{{data['names']|safe}}]
+        
+        //var arrnum=[70,20,7,1,20,1];
+        var arrnum=[{{data['rates']|safe}}];
+        var arrcolor=[window.chartColors.red,window.chartColors.green,window.chartColors.yellow,window.chartColors.gray,window.chartColors.blue,window.chartColors.orange];
+        //************************************************************************************
+        
+        
+        
+        
+        for(var i=0;i<arrnum.length;i++){
+            if (config.data.datasets.length > 0) {
+                    config.data.labels.push(arrname[i]);
+
+                    
+                    
+                    count++;
+                    config.data.datasets.forEach(function(dataset) {
+                        dataset.data.push(arrnum[i]);
+                        dataset.backgroundColor.push(arrcolor[i]);
+                    });
+
+                   // window.myPie.update();
+                }
+        }
+        
+        
+        window.onload = function() {
+            var ctx = document.getElementById('chart-area').getContext('2d');
+            window.myPie = new Chart(ctx, config);
+//            var line = document.getElementById('line').getContext('2d');
+//          window.myLine = new Chart(line, lines);
+        };
+        
+        </script>
+        
+        </div>
+            </section>
+        </div>
+                    
+        <button class="detal btn btn-success btn-lg">Details</button>
+    <label class="plalable">Plagrism {{data['fullRate']}}<span>%</span></label>
+    </div>
+    
+
+
+
+</div>
+    </body>
+</html>

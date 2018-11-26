@@ -1,0 +1,190 @@
+
+<!--        body of the page    -->
+<!--        Charts-->
+    <div> 
+        <div id="canvas-holder" style="width: 100%;height: 290px">
+		    
+            <canvas style="height: 100%;width: 90%;" id="line"></canvas>  
+           
+<!--            <canvas id="chart-area"></canvas>-->
+              
+	       </div>
+    <script type="text/javascript">
+        
+            var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data:[],
+					backgroundColor: [
+						
+					],
+					label: []
+				}],
+				labels: [
+					
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+        var count=0;
+        var colorNames = Object.keys(window.chartColors);
+        //document.getElementById('addData').addEventListener('click', function() {
+        
+        
+        //************************************************************************************
+        //Edit with Python for pip
+        var arrname=["mhw","omer","mustafa"]
+        var arrnum=[70,20,10];
+        var arrcolor=[window.chartColors.red,window.chartColors.green,window.chartColors.yellow,window.chartColors.gray,window.chartColors.blue,window.chartColors.orange];
+        //************************************************************************************
+        
+        
+        
+        
+		for(var i=0;i<arrnum.length;i++){
+            if (config.data.datasets.length > 0) {
+                    config.data.labels.push(arrname[i]);
+
+                    
+                    
+                    count++;
+                    config.data.datasets.forEach(function(dataset) {
+                        dataset.data.push(arrnum[i]);
+                        dataset.backgroundColor.push(arrcolor[i]);
+                    });
+
+                   // window.myPie.update();
+                }
+        }
+        
+        
+        //************************************************************************************
+        //Edit with Python for pip
+        var arrnameline=['1', '2', '3', '4', '5', '6', '7','8','9']
+        var arrnumline=[70,20,10,104,200,123,578,324,575];
+        var arrnumlinebook=[1000,20,500,104,200,123,1000,324,575];
+        var arrcolor=[window.chartColors.red,window.chartColors.green,window.chartColors.yellow,window.chartColors.gray,window.chartColors.blue,window.chartColors.orange];
+        //************************************************************************************
+//		var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+
+		var lines = {
+			type: 'line',
+			data: {
+				labels: [],
+				datasets: [{
+					label: 'Number Of Plagrism',
+					backgroundColor: window.chartColors.red,
+					borderColor: window.chartColors.red,
+					data: [
+					],
+					fill: false,
+                },{label: 'Number Of New Book',
+					backgroundColor: window.chartColors.green,
+					borderColor: window.chartColors.green,
+					data: [
+					],
+					fill: false,}]
+			},
+			options: {
+				responsive: true,
+				title: {
+					display: true,
+					text: 'Status'
+				},
+				tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'August'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						scaleLabel: {
+							display: true,
+							labelString: 'Value'
+						},
+						ticks: {
+							min: 0,
+							max: 1000,
+
+							// forces step size to be 5 units
+							stepSize: 100
+						}
+					}]
+				}
+			}
+		};
+        var con=0;
+        for(var i=0;i<arrnumline.length;i++){
+            if (lines.data.datasets.length > 0) {
+                    lines.data.labels.push(arrnameline[i]);
+
+                    
+                    
+                    con++;
+                    
+                    lines.data.datasets[0].data.push(arrnumline[i]);
+                    lines.data.datasets[1].data.push(arrnumlinebook[i]);
+//                    lines.data.datasets.forEach(function(dataset) {
+//                        dataset.data.push(arrnumline[i]);
+//                    });
+
+                   // window.myPie.update();
+                }
+        }
+		//});
+        window.onload = function() {
+//			var ctx = document.getElementById('chart-area').getContext('2d');
+//			window.myPie = new Chart(ctx, config);
+            var line = document.getElementById('line').getContext('2d');
+			window.myLine = new Chart(line, lines);
+		};
+        
+        </script>
+        
+        
+        </div>
+<!--        report details -->
+        <div class="card card_report">
+                      <div  class="card-body">
+                        <label class="repo">Researches</label><br>
+                          <label class="reponum">{{data['Researches']}}</label>
+                      </div>
+                </div>
+        <div class="card card_report">
+                      <div  class="card-body">
+                        <label class="repo"> Colleges </label><br>
+                          <label class="reponum">{{data['Colleges']}}</label>
+                      </div>
+                </div>
+        <div class="card card_report">
+                      <div  class="card-body">
+                        <label class="repo">Members</label><br>
+                          <label class="reponum">{{data['Members']}}</label>
+                      </div>
+                </div>
+        <div class="card card_report">
+                      <div  class="card-body">
+                        <label class="repo">Plagiarisms</label><br>
+                          <label class="reponum">{{data['Plagiarisms']}}</label>
+                      </div>
+                </div>
+            
+            
+           
+        
+    </div>

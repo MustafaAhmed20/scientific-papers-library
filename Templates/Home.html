@@ -1,0 +1,71 @@
+{% block content %}
+
+          <div id="allcard">
+              <div >
+                    <a href="{{url_for('project',page_sec='plagiarism')}}" style="text-decoration: none;color: black">
+                        <div id="lef" class="card cir">
+                            <div  class="card-body">
+                                <i id="ictrue" class="fa fa-check"></i>
+                                <i id="icsh" class="fa fa-search"></i>
+                                <div class="clab">Plagiarism</div>
+                            </div>
+                        </div>
+                    </a>
+                    {%if session["user_type"] == 0%}
+                    <a href="{{url_for('project',page_sec='colleges')}}" style="text-decoration: none;color: black">
+                        <div id="lef" class="card cir">
+                              <div  class="card-body">
+                                  <i id="icsh" class="fa fa-building"></i>
+                                  <div class="clab">ADD College</div>
+                              </div>
+                        </div>
+                    </a>
+
+                    <a href="{{url_for('project',page_sec='report')}}" style="text-decoration: none;color: black">
+                        <div id="lef" class="card cir">
+                            <div  class="card-body">
+                                <i id="icsh" class="fa fa-wpforms"></i>
+                                <div class="clab"> Report </div>
+                            </div>
+                        </div>
+                    </a>
+                    {%endif%}
+              </div>
+          
+
+              <div>{%if session["user_type"] == 1 or session["user_type"] == 0%}
+                    <a href="{{url_for('project',page_sec='researchs')}}" style="text-decoration: none;color: black">
+                        <div id="lef" class="card cir">
+                              <div  class="card-body">
+                                <i id="set" class="fa fa-plus-circle"></i>   
+                                <i id="icsh" class="fa fa-book"></i>
+                                <div class="clab"> ADD Resaerchs </div>
+                              </div>
+                        </div>
+                            </a>
+                    {%endif%}
+                    <a href="{{url_for('project',page_sec='users')}}" style="text-decoration: none;color: black">
+                        <div id="lef" class="card cir">
+                            <div  class="card-body">
+                                <i id="set" class="fa fa-cog"></i> 
+                                <i id="icsh" class="fa fa-users"></i>
+                                <div class="clab"> Users Setting </div>
+                                
+                            </div>
+                        </div>
+                    </a>
+                    {%if session["user_type"] == 1%}
+                    <a href="{{url_for('project',page_sec='newUsers')}}" style="text-decoration: none;color: black">
+                        <div id="lef" class="card cir">
+                              <div  class="card-body">
+                                  <i id="icsh" class="fa fa-user-plus"></i>  
+                                  <div class="clab"> New Memper </div>
+                              </div>
+                        </div>
+                    </a>
+                    {%endif%}
+              </div>
+          </div>
+
+
+{% endblock %}

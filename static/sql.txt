@@ -1,0 +1,87 @@
+user name = root
+password = 123pm
+
+# create database
+create database <db_name>;
+# drop a database
+drop database <db_name>;
+
+plagiarism
+
+create table user(
+id 				int   			NOT NULL auto_increment,
+u_name 			varchar(100) 	not null,
+u_pass 			text		  	not null,
+state  			int          	not null,
+u_type 			int          	not null,
+university_id 	int,
+college_id 		int,
+email 			varchar(50),
+name 			text 			not null,		
+PRIMARY KEY(id)
+ );
+ 
+type  = 0 # admin
+type  = 1 # project manager
+type  = 2 # teacher
+type  = 3 # student
+state = 0 # active
+state = 1 # Not active
+state = 2 # Waiting for acceptance
+ 
+-----------------------------------------------------
+ 
+create table history(
+id	     		int   	NOT NULL auto_increment,
+user_id			int		NOT NULL,
+operation_type	int		NOT NULL,
+var_id			int,
+date 			DATETIME 	Not NULL,
+PRIMARY KEY(id)
+);
+
+operation_type = 1 #add user
+operation_type = 2 #add research
+operation_type = 3 #plagiarism
+
+----------------------------------------------------- 
+create table colleges(
+id 	    		int   			NOT NULL auto_increment,
+name			varchar(100)	NOT NULL,
+plagiarism		float			NOT NULL,
+PRIMARY KEY(id)
+);
+
+-----------------------------------------------------
+
+create table projects(
+id        	int   		NOT NULL auto_increment,
+name      	varchar(500) 	not null,
+aothor    	varchar(500) 	not null,
+date      	date        	not null,
+addedDate 	DATETIME 	Not NULL,
+file      	BLOB ,
+file_ext  	varchar(5) 	not null,
+college_id	int		not null,
+PRIMARY KEY(id)
+ )ENGINE=InnoDB;
+ 
+ 
+ 
+-----------------------------------------------------
+
+
+ show tables
+ desc table_name
+ --
+ ALTER TABLE table_name
+ADD column_name datatype;
+
+ALTER TABLE table_name
+DROP COLUMN column_name;
+
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+
+--
+

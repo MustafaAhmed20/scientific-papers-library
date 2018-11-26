@@ -1,0 +1,228 @@
+/* Start Upper Bar */
+    .upper-bar{
+        background-color: rgb(50, 156, 98);
+        color: white;
+        padding: 10px;
+    }
+
+    .upper-bar .info{
+        margin: 15px 0;
+    }
+
+    .upper-bar .info span img{
+        height: 25px;
+        width: 25px;
+    }
+
+    .upper-bar .info span:last-child{
+        color: #FFF;
+    }
+/* End Upper Bar */
+
+/* Start Right Alignin Text */
+    .right{
+        text-align: right;
+    }
+/* End Right Aligning text */
+
+/* Start upper-bar span */
+    .upper-bar span{
+        color: #bfc6c9;
+    }
+/* End upper-bar span */
+
+/* Start .upper-bar .get-quote */
+    .upper-bar .get-quote{
+        display: inline-block;
+        border: 1px solid #ec1c23;
+        padding: 2px 10px;
+        margin-left: 20px;
+    }
+/* End .upper-bar .get-quote */
+
+/* Start first and last child */
+
+    .navbar .nav-item .dropdown-content .padd02{
+        padding: 15px 8px;
+        text-align: center;
+        border: 1px solid #343a40;
+        
+    }
+
+    .navbar .nav-item .dropdown-content .padd02:hover{
+        background-color: #28a745;
+        color: #FFF;
+    }
+
+    .padd01{
+        margin: 12px;
+    }
+
+    .navbar-brand > span{
+        font-size: 40px;
+    }
+
+    .navbar-brand span:first-child{
+        color: rgb(50, 156, 98);
+        font-weight: bold;
+    }
+    .navbar-brand span:last-child{
+        color: #ec1c23;
+    }
+/* End first and last child */
+
+/* Start .navbar-nav .nav-link */
+    .navbar-nav .nav-link{
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-left: 20px;
+        color: #08526d;
+        font-weight: bold;
+    }
+
+    .navbar-nav .nav-link:hover{
+        color: white;
+    }
+/* End .navbar-nav .nav-link */
+
+/* Start .navbar-nav .nav-link.active */
+    .navbar-nav .active > .nav-link{
+        color: #ec1c23!important;
+    }
+/* End .navbar-nav .nav-link.active */
+
+/* Start Form */
+    .upload{
+        margin-bottom: -10px;
+        font-family: arabic typesetting;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    
+    .form-container{
+        border: 1px solid black;
+        padding: 50px 70px 50px 30px;
+        margin-top: 5vh;
+        color: black;
+        margin-bottom: 30px;
+    }
+
+/* End Form */
+
+/* Start Nav-Bar */
+
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover{
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+
+/* End Nav-Bar */
+
+/* Start Search */
+    .search{
+        margin-top: 10px;
+    }
+    #myInput_date{
+        margin-left: 15px;
+    }
+    .add-book{
+        margin-left: 458px;
+    }  
+   .add-user{
+        margin-left: 588px;
+    }  
+/* End Search */
+
+/* hover slide */
+
+    #mySidenav a {
+        margin-top: 130px;
+        position: absolute; /* Position them relative to the browser window */
+        left: -170px; /* Position them outside of the screen */
+        transition: 0.3s; /* Add transition on hover */
+        padding: 15px; /* 15px padding */
+        width: 200px; /* Set a specific width */
+        text-decoration: none; /* Remove underline */
+        font-size: 16px; /* Increase font size */
+        color: white; /* White text color */
+        border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+    }
+
+    #mySidenav a:hover {
+        left: 0; /* On mouse-over, make the elements appear as they should */
+    }
+
+    /* The about link: 20px from the top with a green background */
+    .sli {
+        top: 20px;  
+    }
+.sl{
+    top:80px;
+}
+
+    
+/*end slide*/
+/* + and - */ 
+    
+    #addBtn{   
+        position: absolute;
+        padding: -5px;
+        top:  295px;
+        left: 805px;
+        z-index: 99;
+        border-radius: 50%;
+    }
+    #deleteBtn{
+        position: absolute;
+        padding: -5px;
+        top:335px;
+        left:805px;
+        z-index: 99;
+        border-radius: 50%;
+    }
+/*end*/
+
+/*error*/
+.error{
+    color: red;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 5px;
+}

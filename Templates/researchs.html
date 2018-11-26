@@ -1,0 +1,208 @@
+
+<!--        body of the page    -->
+        <div class="bodynew">
+        <nav class="navbar navbar-expand-sm search">
+          <form class="form-inline mynav" action="/action_page.php">
+              <div class="input-group">
+                <div class="input-group-append">
+        
+            <input class="form-control"  type="text" id="myInput_name" onkeyup="myFunction_name()" placeholder="Search here">
+        
+                 <span class="input-group-text sico"><i class="fa fa-search"></i></span>
+                    
+                 </div>
+              </div>
+              <button type="button" style="margin-left: 500px;" class="btn btn-success add-coll" data-toggle="modal" data-target="#add-Resaerch">
+                                    Add Resaerch <i class="fa fa-plus"></i>
+                            </button>
+          </form>
+        </nav>
+            
+        <div class="table-responsive tabl">
+                    <table id="myTable" class="table table-striped">
+                      <tr class="header bg-dark text-light thead">
+                        <th >Research Name</th>
+                        <th >Author</th>
+                        <th>College</th>
+                          <th>Date</th>
+                        
+                      </tr>
+                      {% for research in data['researchs'] %}
+                      <tr>
+                        <td>{{research['name']}}</td>
+                        <th>{{research['aothor']|safe}}</th>
+                        <th>{{research['college_name']}}</th>
+                        <td>{{research['date']}}</td>
+                        
+                      </tr>
+                      {% endfor %}
+                    </table>
+            </div>   
+        </div>
+            <!-- table End -->
+    </div>
+<script>
+        
+    
+    var n=0;
+    var b=0;
+    $('select').on('change', function() {
+      var input = $( "select option:selected" ).text();
+//    alert(inout);
+        b= 1;
+      if(n==0){
+                  var filter, table, tr, td, i;
+                  filter = input.toUpperCase();
+                  table = document.getElementById("myTable");
+                  tr = table.getElementsByTagName("tr");
+                    if(filter!= "ALL..."){
+                      alert(filter);
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[2];
+                    if (td) {
+                      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                      }
+                    } 
+                  }}else{
+                    alert("all");
+                   for (i = 0; i < tr.length; i++) {
+                      tr[i].style.display = "";}
+                  }
+    }else{
+            all();
+        }});
+
+                function myFunction_name() {
+                  // Declare variables 
+                  n = 1;
+                  if(b==0){
+                  var input, filter, table, tr, td, i;
+                  input = document.getElementById("myInput_name");
+                  filter = input.value.toUpperCase();
+                  table = document.getElementById("myTable");
+                  tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[0];
+                    if (td) {
+                      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                      } else {
+                        tr[i].style.display = "none";
+                      }
+                    } 
+                  }
+    }
+    else
+    {
+      all();  
+    }
+                }
+//                        function myFunction_date() {
+//                  // Declare variables 
+//      b= 1;
+//      if(n==0){
+//                  var input, filter, table, tr, td, i;
+//                  input = document.getElementById("myInput_date");
+//                  filter = input.value.toUpperCase();
+//                  table = document.getElementById("myTable");
+//                  tr = table.getElementsByTagName("tr");
+//
+//                  // Loop through all table rows, and hide those who don't match the search query
+//                  for (i = 0; i < tr.length; i++) {
+//                    td = tr[i].getElementsByTagName("td")[2];
+//                    if (td) {
+//                      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+//                        tr[i].style.display = "";
+//                      } else {
+//                        tr[i].style.display = "none";
+//                      }
+//                    } 
+//                  }
+//    }
+//    else
+//    {
+//      all();
+//    }
+//                }
+    function all()
+    {
+      var input, filter,input1, filter1, table, tr, td,td1, i;
+                  input = document.getElementById("myInput_name");
+                  filter = input.value.toUpperCase();
+              input1 = $( "select option:selected" ).text();
+                  filter1 = input1.toUpperCase();
+            if(filter1=="ALL..."){
+                filter1="";
+            }
+            
+                  table = document.getElementById("myTable");
+                  tr = table.getElementsByTagName("tr");
+
+                  // Loop through all table rows, and hide those who don't match the search query
+                  for (i = 0; i < tr.length; i++) {
+                    td = tr[i].getElementsByTagName("td")[1];
+                    td1 = tr[i].getElementsByTagName("td")[2];
+                    if (td && td1) {
+                      if (td.innerHTML.toUpperCase().indexOf(filter) > -1 && td1.innerHTML.toUpperCase().indexOf(filter1) > -1 ) {
+                        tr[i].style.display = "";
+      //alert("secsess "+filter+"\t,,"+filter1);
+                      } else {
+      //alert("failed"+filter+"\t,,"+filter1);
+                        tr[i].style.display = "none";
+                      }
+                    
+                  }
+        }
+    }
+
+
+                </script>
+    
+
+    <!-- Modal Resaerch -->
+<div id="add-Resaerch" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body borde">
+          <i class="fa fa-user-plus user"></i>
+          <p>Add new Resaerch</p>
+          <form id="add_resarch" action="{{url_for('addfile')}}" method="post" enctype = "multipart/form-data">
+              <div id="leftForm">
+              <div class="form-group">
+                    <label class="formlable">Resaerch Name</label>
+                    <input type="text" class="form-control filed"  placeholder="Resaerch Name" name="name" required> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">Author(s) name</label>
+                    <input type="text" class="form-control filed" name="aothor" required> 
+              </div>
+              <div class="form-group">
+                    <label class="formlable">Publish Date </label>
+                   <input type="date" class="form-control" name="date" required>
+              </div>
+              <div class="form-group">
+                    <label class="formlable">College</label>
+                    <select class="form-control" name="college">
+                        {% for college in data['colleges'] %}
+                            <option value="{{college['id']}}">{{college["name"]}}</option>
+                        {% endfor %}
+                    </select>
+              <div class="form-group">
+                    <label for="upload" class="upload">Upload Your File</label>
+                    <input type="file" class="form-control" name="file" required>
+              </div>
+              <button type="submit" id="Resaerchsubmit" class=" btn btn-success btn-lg ">Save </button>
+          </form>
+      </div>
+    </div>
+
+  </div>
+</div>

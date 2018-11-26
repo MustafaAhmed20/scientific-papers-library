@@ -1,0 +1,130 @@
+/* Start first and last child */
+
+    /* Start From */
+    .bg{
+        margin-bottom: 30px;
+    }
+    .form-back{
+        background-image: url('../img/form_background.jpg');
+        height: 665px;
+    }
+    .form-container{
+        margin-top: 150px;
+        border: 1px solid black;
+        padding: 20px 30px;
+        -webkit-box-shadow: 1px 4px 26px 11px;
+    }
+/* End Form */
+
+    .navbar-brand > span{
+        font-size: 40px;
+    }
+
+    .navbar-brand span:first-child{
+        color: #08526d;
+        font-weight: bold;
+    }
+    .navbar-brand span:last-child{
+        color: #ec1c23;
+    }
+
+    .navbar .login{
+        padding: 5px 15px;
+    }
+/* End first and last child */
+
+/* Start .navbar-nav .nav-link */
+    .navbar-nav .nav-link{
+        font-size: 16px;
+        text-transform: uppercase;
+        margin-left: 20px;
+        color: #08526d;
+        font-weight: bold;
+    }
+/* End .navbar-nav .nav-link */
+
+/* Start .navbar-nav .nav-link.active */
+    .navbar-nav .active > .nav-link{
+        color: #ec1c23!important;
+    }
+/* End .navbar-nav .nav-link.active */
+
+/* Start Slider */
+    .slider{
+        background-color: #DDD;
+    }
+
+    .slider .carousel-inner{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .slider .carousel-inner h1{
+        position: absolute;
+        color: #FFF;
+        margin-left: 30px;
+        z-index: 2;
+        font-size: 45px;
+        max-width: 900px;
+        left: 100px;
+        line-height: 1.5;
+    }
+
+    .slider .carousel-inner h1 span{
+        background-color: #ec1c23;
+        color: #FFF;
+        display: inline;
+        padding: 2px 10px;
+        line-height: 1.5;
+    }
+
+    .slider .carousel-inner .overlay{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0 , 0 , 0 , 0.6);
+    }
+
+    .slider .carousel-item{
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    .slider .carousel-one{
+        background-image: url('../img/31.jpg');
+    }
+
+    .slider .carousel-tow{
+        background-image: url('../img/27.jpg');
+    }
+
+    .slider .carousel-three{
+        background-image: url('../img/24.jpg');
+    }
+
+    .slider .carousel-four{
+        background-image: url('../img/1.jpg');
+    }
+
+    .slider .carousel-fife{
+        background-image: url('../img/28.jpg');
+    }
+
+    .slider .carousel-indicators li{
+        height: 8px;
+        cursor: pointer;
+    }
+/* End Slider */
+
+/*error*/
+.error{
+    color: red;
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 5px;
+}

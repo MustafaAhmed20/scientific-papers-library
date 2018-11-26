@@ -1,0 +1,117 @@
+
+<!--        body of the page    -->
+<!--        Charts-->
+    <div> 
+        <section class="price_table">
+                    <div class="row">
+                        
+<!--                            <div class="text_box one">-->
+                <div class="text_box">
+                    <p> {{data['text']|safe}} </p>
+                </div>
+<!--                            </div>-->
+                        
+<!--                details    -->
+                <div style="margin-top: 150px;margin-left: 100px;margin-right: -100px;">
+                    <!-- <div class="all-box">
+                    <div class="box"></div>
+                    <label>mhw</label>
+                    </div> -->
+<!--
+                    <div class="all-box">
+                    <div class="box"></div>
+                    <label>my book</label>
+                    </div>
+                    <div class="all-box">
+                    <div class="box"></div>
+                    <label>my book</label>
+                    </div>
+                    <div class="all-box">
+                    <div class="box"></div>
+                    <label>my book</label>
+                    </div>
+-->
+                    
+                        </div>
+                        
+<!--                        pip chart-->
+        <div id="canvas-holder" class="pipout">
+		    
+<!--            <canvas style="height: 100%;width: 90%;" id="line"></canvas>  -->
+           
+            <canvas id="chart-area"></canvas>
+              
+	       </div>
+                        
+    <script type="text/javascript">
+        
+            var config = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data:[],
+					backgroundColor: [
+						
+					],
+					label: []
+				}],
+				labels: [
+					
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+        var count=0;
+        var colorNames = Object.keys(window.chartColors);
+        //document.getElementById('addData').addEventListener('click', function() {
+        
+        
+        //************************************************************************************
+        //Edit with Python for pip
+        //var arrname=["mhw","omer","mustafa","mom","mustafa","mom"]
+        var arrname=[{{data['names']|safe}}]
+        
+        //var arrnum=[70,20,7,1,20,1];
+        var arrnum=[{{data['rates']|safe}}];
+        var arrcolor=[window.chartColors.red,window.chartColors.green,window.chartColors.yellow,window.chartColors.gray,window.chartColors.blue,window.chartColors.orange];
+        //************************************************************************************
+        
+        
+        
+        
+		for(var i=0;i<arrnum.length;i++){
+            if (config.data.datasets.length > 0) {
+                    config.data.labels.push(arrname[i]);
+
+                    
+                    
+                    count++;
+                    config.data.datasets.forEach(function(dataset) {
+                        dataset.data.push(arrnum[i]);
+                        dataset.backgroundColor.push(arrcolor[i]);
+                    });
+
+                   // window.myPie.update();
+                }
+        }
+        
+        
+        window.onload = function() {
+			var ctx = document.getElementById('chart-area').getContext('2d');
+			window.myPie = new Chart(ctx, config);
+//            var line = document.getElementById('line').getContext('2d');
+//			window.myLine = new Chart(line, lines);
+		};
+        
+        </script>
+        
+        </div>
+            </section>
+        </div>
+                    
+        <!-- <button class="detal btn btn-success btn-lg">Details</button> -->
+    <label class="plalable">Plagrism {{data['fullRate']}}<span>%</span></label>
+    </div>
+    

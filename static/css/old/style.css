@@ -1,0 +1,37 @@
+/* Start Upper Bar */
+    .upper-bar{
+        background-color: rgb(50, 156, 98);
+        color: white;
+        padding: 10px;
+    }
+
+    .upper-bar .info{
+        margin: 15px 0;
+    }
+
+    .upper-bar .info span img{
+        height: 25px;
+        width: 25px;
+    }
+
+
+/* End Upper Bar */
+
+/* Start Form */
+    .bg{
+        background-image: url(../img/bacc.jpg);
+        background-size: cover;
+        width: 100%;
+        height: 89vh;
+    }
+    .form-container{
+        border: 0px solid #fff;
+        padding: 50px 30px;
+        margin-top: 20vh;
+        color: #FFF;
+        -webkit-box-shadow: 1px 4px 26px 11px;
+    }
+    .header{
+        font-family: arabic typesetting;
+    }
+/* End Form */
