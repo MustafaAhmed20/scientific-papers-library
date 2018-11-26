@@ -1,0 +1,38 @@
+/* Start Pricing Table */
+.colorText1{
+  background-color: green;
+}
+.colorText2{
+  background-color: yellow;
+}
+.colorText3{
+  background-color: gray;
+}
+.colorText4{
+  background-color: blue;
+}
+.colorText5{
+  background-color: #4bc0c0;
+}
+.colorText6{
+  background-color: red;
+}
+.colorText7{
+  background-color: brown;
+}
+
+.tab{
+	margin-bottom: 20px;
+}
+.price_table{
+    padding-top: 40px;
+    padding-bottom: 40px;  
+}
+.text_box{
+	padding-right: 20px;
+}
+.one{
+	border-right: 1px solid;
+	height: 100%;
+}
+/* End Pricing Table */

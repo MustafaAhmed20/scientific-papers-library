@@ -1,0 +1,75 @@
+<div style="background-image: url(/static/img/home_1.jpg);background-size: 100% 100%;height: 662px;">
+<!-- Start nav-bar -->
+          <div>
+              <div>
+                {# <label id="rad_na">Omer</label> #}
+                <label id="rad_na">{{session["user_name"]}}</label>
+                <label id="rada">
+                  {% if session["user_type"] == 0 %}
+                    Adminstrator
+                  {% elif session["user_type"] == 1 %}
+                    Project Manager
+                  {% elif session["user_type"] == 2 %}
+                    Teacher
+                  {% elif session["user_type"] == 3 %}
+                    Student
+                  {% endif %}
+                </label>
+                
+                {% if not page %}
+                  <label id="ti">Home</label>
+                {% else %}
+                  <label id="ti">{{page}}</label>
+                {% endif %}
+
+                <a href="{{url_for('project')}}" style="text-decoration: none;color: black">
+                  <div class="icon">
+                    <i class="fa fa-home"></i>
+                    <label id="ho">Home</label>
+                  </div>
+                </a>
+
+                <a href="{{url_for('logout')}}" style="text-decoration: none;color: black">
+                  <div class="ico">
+                    <i class="fa fa-sign-out"></i>
+                    <label id="ho">Sign Out</label>
+                  </div>
+                </a>
+              </div>
+          </div>
+          
+<!-- End of nav-bar -->
+
+	{% block content %}
+		{% if page == "colleges" %}
+    		{% include 'colleges.html' %}
+    {% elif page == "plagiarism"%}
+    		{% include 'plagiarism.html' %}
+    {% elif not page%}
+    		{% include 'Home.html' %}
+    
+    {% elif page == 'users' and session["user_type"] < 2%}
+        {% include 'users.html' %}
+    {% elif page == 'users' and session["user_type"] > 1%}
+    {% include 'Reset.html' %}
+    
+    {% elif page == 'newUsers' %}
+        {% include 'newUsers.html' %}
+    {% elif page == 'researchs' %}
+        {% include 'researchs.html' %}
+    {% elif page == "report" %}
+        {% include 'report.html' %}
+    {% elif page == "outPut" %}
+        {% include 'output.html' %}
+    {% elif page == "adminResets" %}
+        {% include 'ResetAdminUsers.html' %}
+      {% elif page == "test" %}
+        {% include 'test.html' %}
+    {% endif %}
+    	
+	    	
+	{% endblock %}
+
+
+
+</div>
